@@ -1,18 +1,29 @@
 "use client";
 
 import React from "react"
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Input, Button, Avatar, Dropdown, DropdownItem, DropdownTrigger, DropdownMenu} from "@nextui-org/react"
-import { FaSearch } from "react-icons/fa";
+import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Input, Button, Link, Avatar, Dropdown, DropdownItem, DropdownTrigger, DropdownMenu} from "@nextui-org/react"
+import { FaSearch, FaPlus } from "react-icons/fa";
 
 export function TopNavbar() {
   return (
     <Navbar position="static" className="bg-gray-900" maxWidth="full">
       <NavbarContent justify="start">
         <NavbarBrand className="text-3xl">
-          <p>🐲<b className="outline-white">Hoardr</b></p>
+          🐲
+          <Link href="/" className="text-3xl text-white font-bold">
+          Hoardr
+          </Link>
         </NavbarBrand>
       </NavbarContent>
       <NavbarContent justify="center" className="w-full">
+        <NavbarItem>
+          <Button
+            isIconOnly
+            href="/upload"
+            as={Link}>
+            <FaPlus />
+          </Button>
+        </NavbarItem>
         <NavbarItem className="w-5/12">
           <Input classNames={{
               base: "max-w-full h-10",
