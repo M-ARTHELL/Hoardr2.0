@@ -1,6 +1,8 @@
+"use client";
+
 import React from "react";
-import { Card, CardHeader, CardBody, CardFooter, Image, Divider, Link, Button } from "@nextui-org/react";
-import { FaLink, FaEllipsisH, FaTag } from "react-icons/fa";
+import { Card, CardHeader, CardBody, CardFooter, Image, Divider, Link } from "@nextui-org/react";
+import { FaLink, FaTag, FaStar, FaStarHalf } from "react-icons/fa";
 
 
 export function ResourceCard() {
@@ -11,9 +13,7 @@ export function ResourceCard() {
           <h4 className="text-lg font-bold">Dad cat</h4>
           <p className="text-tiny">@KittyCat</p>
         </div>
-        <div className="items-end flex">
-          <FaEllipsisH  />
-        </div>
+
       </CardHeader>
       <Divider className="mt-3"/>
       <CardBody className="overflow-visible py-3 px-5 items-center">
@@ -24,6 +24,9 @@ export function ResourceCard() {
         />
       </CardBody>
       <CardFooter className="text-sm flex-col items-start px-4">
+
+        <div className="rating flex mb-1"><FaStar /><FaStar /><FaStar /><FaStar /><FaStarHalf /></div>
+        
         <p>This is my dad! Hes big and stinky and grumpy but he loves us and we love him!</p>
         <div className="flex mt-4 mb-1">
           <FaLink className="text-sm mr-2"/>
