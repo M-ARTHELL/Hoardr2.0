@@ -1,12 +1,11 @@
 'use client'
 
-import React, { useState } from 'react'
+import React from 'react'
 import { Input, Button } from '@nextui-org/react'
 import { FaXmark } from "react-icons/fa6";
 
 
-export function TagInput({selectedTags}) {
-  let [tags, setTags] = useState([]);
+export function TagInput({tags, setTags}) {
 
   const addTags = event => {
 
@@ -16,7 +15,6 @@ export function TagInput({selectedTags}) {
         return console.log("already exists")
       } else {
         setTags([...tags, event.target.value])
-        selectedTags([...tags, event.target.value])
       }
 			event.target.value = ""
 		} else if (event.key === "Enter" && event.target.value == "") {
