@@ -9,9 +9,9 @@ export function TagInput({selectedTags}) {
   let [tags, setTags] = useState([]);
 
   const addTags = event => {
-    event.preventDefault();
+
 		if (event.key === "Enter" && event.target.value !== "") {
-      event.preventDefault
+      event.preventDefault();
       if (tags.includes(event.target.value)) {
         return console.log("already exists")
       } else {
@@ -19,7 +19,9 @@ export function TagInput({selectedTags}) {
         selectedTags([...tags, event.target.value])
       }
 			event.target.value = ""
-		}
+		} else if (event.key === "Enter" && event.target.value == "") {
+      event.preventDefault();
+    }
   };
 
   const removeTags = index => {
@@ -30,7 +32,7 @@ export function TagInput({selectedTags}) {
     <div className="flex bg-red-800 rounded-xl">
       <div className='flex flex-wrap w-full'>
       <input type="text"
-      onKeyUp={event => addTags(event)} className={`self-center h-14 w-full mx-2 outline-none bg-red-800 ${tags.length > 0 ? 'border border-0 border-b-2 border-solid border-black': ''}`} />
+      onKeyDown={event => addTags(event)} className={`self-center h-14 w-full mx-2 outline-none bg-red-800 ${tags.length > 0 ? 'border border-0 border-b-2 border-solid border-black': ''}`} />
         {tags.map((tag, index) => (
           <div key={index} className='p-2'>
             <span className='flex bg-red-500 w-min p-2 rounded-xl'>{tag}
